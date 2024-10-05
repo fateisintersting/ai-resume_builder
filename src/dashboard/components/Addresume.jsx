@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input';
 import { v4 as uuidv4 } from 'uuid';
 import GlobalApi from './../../../service/GlobalApi';
 import { useUser } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
   
 
 export default function Addresume() {
@@ -21,7 +22,7 @@ export default function Addresume() {
     const [resumeTitle,setResumeTitle]=useState();
     const {user}=useUser();
     const [loading,setLoading]  = useState(false);
-
+    const navigation=useNavigate();
 
     const onCreate = async()=>{
       setLoading(true)
@@ -39,6 +40,7 @@ export default function Addresume() {
         console.log(resp);
         if(resp){
           setLoading(false);
+          navigation('/dashboard/resume/'+uuid+'/edit')
         }
       },(error)=>{
         setLoading(false);

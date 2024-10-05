@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SignInPage from './auth/sign-in/index.jsx'
 import Home from './home/index.jsx'
 import DashBoard from './dashboard/index.jsx'
+import EditResume from './dashboard/resume/[resumeId]/edit/index.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path:'/dashboard',
         element:<DashBoard/>
       },
+      {
+        path:'/dashboard/resume/:resumeId/edit',
+        element:<EditResume/>
+      }
     ],
   },
   {
