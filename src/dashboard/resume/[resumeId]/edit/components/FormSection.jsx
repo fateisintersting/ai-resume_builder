@@ -3,6 +3,7 @@ import PersonalDetail from './forms/PersonalDetail';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, LayoutGrid } from 'lucide-react';
 import Summery from './forms/Summery';
+import Experience from './forms/Experience';
 
 export default function FormSection() {
   const [activeFormIndex,setActiveFormIndex]=useState(1);
@@ -28,6 +29,8 @@ export default function FormSection() {
       {activeFormIndex==1?  <PersonalDetail enabledNext={(v)=>setEnableNext(v)} />
       :activeFormIndex==2? 
       <Summery enabledNext={(v)=>setEnableNext(v)}  />
+      :activeFormIndex==3? 
+      <Experience  />
       :null 
     }
     </div>
